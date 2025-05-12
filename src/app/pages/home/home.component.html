@@ -1,0 +1,96 @@
+<app-hero-section
+  backgroundImage="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg"
+  title="Creating a <span class='highlight'>Better Tomorrow</span>"
+  subtitle="Hope Horizon is dedicated to sustainable development, community empowerment, and creating lasting positive change around the world."
+  primaryButtonText="Our Projects"
+  primaryButtonLink="/our-work"
+  secondaryButtonText="Get Involved"
+  secondaryButtonLink="/contact"
+>
+</app-hero-section>
+
+<section class="mission-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Mission</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="mission-content">
+      <div class="mission-text">
+        <p>
+          At Hope Horizon, we believe in a world where every person has the
+          opportunity to live a dignified, healthy, and fulfilling life. Our
+          mission is to create sustainable solutions that address the root
+          causes of poverty, inequality, and environmental degradation.
+        </p>
+        <p>
+          Through collaborative partnerships and community-driven approaches, we
+          implement projects that create lasting positive change in the areas of
+          education, clean water, healthcare, and sustainable agriculture.
+        </p>
+      </div>
+
+      <div class="mission-stats">
+        <div class="stat-item">
+          <span class="stat-number">25+</span>
+          <span class="stat-label">Countries</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">500K+</span>
+          <span class="stat-label">Lives Impacted</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-projects">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Impact</h2>
+      <div class="divider"></div>
+      <p>Explore our most impactful projects from around the world</p>
+    </div>
+
+    <app-carousel [items]="featuredProjects"></app-carousel>
+  </div>
+</section>
+
+<section class="recent-projects">
+  <div class="container">
+    <div class="section-header">
+      <h2>Recent Projects</h2>
+      <div class="divider"></div>
+      <p>Discover our latest initiatives making a difference</p>
+    </div>
+
+    <div class="projects-grid">
+      <div *ngFor="let project of recentProjects" class="project-item">
+        <app-project-card [project]="project"></app-project-card>
+      </div>
+    </div>
+
+    <div class="view-all">
+      <a routerLink="/our-work" class="btn btn-primary">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="get-involved">
+  <div class="container">
+    <div class="get-involved-content">
+      <h2>Ready to Make a Difference?</h2>
+      <p>
+        Join us in our mission to create a better world. Together, we can make a
+        lasting impact.
+      </p>
+      <a routerLink="/contact" class="btn btn-lg btn-primary"
+        >Get Involved Today</a
+      >
+    </div>
+  </div>
+</section>

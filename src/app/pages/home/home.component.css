@@ -1,0 +1,181 @@
+/* Section styling */
+section {
+  padding: 80px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.divider {
+  height: 3px;
+  width: 60px;
+  background-color: #2e7d32;
+  margin: 0 auto 24px;
+}
+
+/* Mission section */
+.mission-section {
+  background-color: #f9f9f9;
+}
+
+.mission-content {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.mission-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.mission-text p {
+  margin-bottom: 24px;
+  line-height: 1.6;
+  color: #444;
+  font-size: 16px;
+}
+
+.mission-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-self: center;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 120px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 48px;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.stat-label {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.view-all {
+  text-align: center;
+}
+
+/* CTA section */
+.get-involved {
+  background-color: #1565c0;
+  color: #fff;
+  padding: 64px 0;
+}
+
+.get-involved-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.get-involved-content h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.get-involved-content p {
+  font-size: 18px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+.highlight {
+  color: #2e7d32;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .mission-content {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .mission-stats {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,283 @@
+<section class="admin-section">
+  <div class="container">
+    <div class="admin-header">
+      <h1>Admin Dashboard</h1>
+      <p>Add a new project to the website</p>
+    </div>
+
+    <div class="admin-content">
+      <div *ngIf="formSubmitted && !isLoading" class="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Project Added Successfully!</h3>
+        <p>Your new project has been added to the website.</p>
+        <div class="success-actions">
+          <button (click)="resetForm()" class="btn btn-primary">
+            Add Another Project
+          </button>
+          <button (click)="viewProject()" class="btn btn-secondary">
+            View Project
+          </button>
+        </div>
+      </div>
+
+      <form
+        *ngIf="!formSubmitted || isLoading"
+        [formGroup]="projectForm"
+        (ngSubmit)="onSubmit()"
+        class="project-form"
+      >
+        <h2>Add New Project</h2>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="title">Project Title</label>
+            <input
+              type="text"
+              id="title"
+              formControlName="title"
+              [class.error]="title?.invalid && (title?.dirty || title?.touched)"
+            />
+            <div
+              *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="title?.errors?.['required']">Title is required</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input
+              type="text"
+              id="category"
+              formControlName="category"
+              [class.error]="
+                category?.invalid && (category?.dirty || category?.touched)
+              "
+            />
+            <div
+              *ngIf="
+                category?.invalid && (category?.dirty || category?.touched)
+              "
+              class="error-message"
+            >
+              <span *ngIf="category?.errors?.['required']"
+                >Category is required</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input
+              type="date"
+              id="date"
+              formControlName="date"
+              [class.error]="date?.invalid && (date?.dirty || date?.touched)"
+            />
+            <div
+              *ngIf="date?.invalid && (date?.dirty || date?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="date?.errors?.['required']">Date is required</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              id="location"
+              formControlName="location"
+              [class.error]="
+                location?.invalid && (location?.dirty || location?.touched)
+              "
+            />
+            <div
+              *ngIf="
+                location?.invalid && (location?.dirty || location?.touched)
+              "
+              class="error-message"
+            >
+              <span *ngIf="location?.errors?.['required']"
+                >Location is required</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="shortDescription">Short Description</label>
+            <input
+              type="text"
+              id="shortDescription"
+              formControlName="shortDescription"
+              [class.error]="
+                shortDescription?.invalid &&
+                (shortDescription?.dirty || shortDescription?.touched)
+              "
+            />
+            <div
+              *ngIf="
+                shortDescription?.invalid &&
+                (shortDescription?.dirty || shortDescription?.touched)
+              "
+              class="error-message"
+            >
+              <span *ngIf="shortDescription?.errors?.['required']"
+                >Short description is required</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="description">Full Description</label>
+            <textarea
+              id="description"
+              formControlName="description"
+              rows="5"
+              [class.error]="
+                description?.invalid &&
+                (description?.dirty || description?.touched)
+              "
+            ></textarea>
+            <div
+              *ngIf="
+                description?.invalid &&
+                (description?.dirty || description?.touched)
+              "
+              class="error-message"
+            >
+              <span *ngIf="description?.errors?.['required']"
+                >Description is required</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="imageUrl">Image URL</label>
+            <input
+              type="url"
+              id="imageUrl"
+              formControlName="imageUrl"
+              [class.error]="
+                imageUrl?.invalid && (imageUrl?.dirty || imageUrl?.touched)
+              "
+            />
+            <div
+              *ngIf="
+                imageUrl?.invalid && (imageUrl?.dirty || imageUrl?.touched)
+              "
+              class="error-message"
+            >
+              <span *ngIf="imageUrl?.errors?.['required']"
+                >Image URL is required</span
+              >
+              <span *ngIf="imageUrl?.errors?.['pattern']"
+                >Please enter a valid URL</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="tags">Tags (comma separated)</label>
+            <input
+              type="text"
+              id="tags"
+              formControlName="tags"
+              [class.error]="tags?.invalid && (tags?.dirty || tags?.touched)"
+            />
+            <div
+              *ngIf="tags?.invalid && (tags?.dirty || tags?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="tags?.errors?.['required']"
+                >At least one tag is required</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-section">
+          <h3>Impact Metrics</h3>
+          <div class="impact-fields">
+            <div class="impact-field">
+              <label for="impactMetric1">Metric 1</label>
+              <input
+                type="text"
+                id="impactMetric1"
+                formControlName="impactMetric1"
+                placeholder="e.g., People Helped"
+              />
+            </div>
+            <div class="impact-field">
+              <label for="impactValue1">Value 1</label>
+              <input
+                type="text"
+                id="impactValue1"
+                formControlName="impactValue1"
+                placeholder="e.g., 10,000+"
+              />
+            </div>
+
+            <div class="impact-field">
+              <label for="impactMetric2">Metric 2</label>
+              <input
+                type="text"
+                id="impactMetric2"
+                formControlName="impactMetric2"
+                placeholder="e.g., Villages Covered"
+              />
+            </div>
+            <div class="impact-field">
+              <label for="impactValue2">Value 2</label>
+              <input
+                type="text"
+                id="impactValue2"
+                formControlName="impactValue2"
+                placeholder="e.g., 25+"
+              />
+            </div>
+
+            <div class="impact-field">
+              <label for="impactMetric3">Metric 3</label>
+              <input
+                type="text"
+                id="impactMetric3"
+                formControlName="impactMetric3"
+                placeholder="e.g., Duration"
+              />
+            </div>
+            <div class="impact-field">
+              <label for="impactValue3">Value 3</label>
+              <input
+                type="text"
+                id="impactValue3"
+                formControlName="impactValue3"
+                placeholder="e.g., 2 years"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="projectForm.invalid || isLoading"
+          >
+            <span *ngIf="!isLoading">Add Project</span>
+            <span *ngIf="isLoading" class="btn-spinner"></span>
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="resetForm()"
+            [disabled]="isLoading"
+          >
+            Clear Form
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

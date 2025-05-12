@@ -1,0 +1,16 @@
+<div class="project-card">
+  <div class="project-image">
+    <img [src]="project.imageUrl" [alt]="project.title" loading="lazy" />
+  </div>
+  <div class="project-content">
+    <span class="project-category">{{ project.category }}</span>
+    <h3 class="project-title">{{ project.title }}</h3>
+    <p class="project-description">{{ project.shortDescription }}</p>
+    <div class="project-tags">
+      <span *ngFor="let tag of project.tags">{{ tag }}</span>
+    </div>
+    <a [routerLink]="['/our-work', project.id]" class="project-link"
+      >Learn More</a
+    >
+  </div>
+</div>

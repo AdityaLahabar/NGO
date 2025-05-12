@@ -1,0 +1,70 @@
+<header [class.scrolled]="scrolled">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">Hope Horizon</a>
+    </div>
+    <nav class="desktop-nav">
+      <ul>
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a routerLink="/our-work" routerLinkActive="active">Our Work</a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+        </li>
+        <li *ngIf="addProject">
+          <a routerLink="/admin" routerLinkActive="active">Add Project</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" [class.open]="mobileMenuOpen">
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMobileMenu()"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/our-work"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >Our Work</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/contact"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >Contact Us</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/admin"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >Add Project</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

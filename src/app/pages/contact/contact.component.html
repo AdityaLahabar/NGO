@@ -1,0 +1,155 @@
+<app-hero-section
+  backgroundImage="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg"
+  title="Contact <span class='highlight'>Us</span>"
+  subtitle="Reach out to learn more about our work or to get involved. We'd love to hear from you."
+  [primaryButtonText]="''"
+  [secondaryButtonText]="''"
+>
+</app-hero-section>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Have questions about our work or how you can help? Send us a message
+          and we'll get back to you as soon as possible.
+        </p>
+
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div class="info-text">
+              <h3>Email</h3>
+              <p>info&#64;hopehorizon.org</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📱</div>
+            <div class="info-text">
+              <h3>Phone</h3>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <h3>Address</h3>
+              <p>123 Compassion Lane<br />Hopeville, CA 90001</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <h2>Send a Message</h2>
+
+        <div *ngIf="formSubmitted && !isLoading" class="form-success">
+          <div class="success-icon">✓</div>
+          <h3>Thank you!</h3>
+          <p>{{ successMessage }}</p>
+          <button (click)="resetForm()" class="btn btn-primary">
+            Send Another Message
+          </button>
+        </div>
+
+        <form
+          *ngIf="!formSubmitted || isLoading"
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+          class="contact-form"
+        >
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              [class.error]="name?.invalid && (name?.dirty || name?.touched)"
+            />
+            <div
+              *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="name?.errors?.['required']">Name is required</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              [class.error]="email?.invalid && (email?.dirty || email?.touched)"
+            />
+            <div
+              *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="email?.errors?.['required']">Email is required</span>
+              <span *ngIf="email?.errors?.['email']"
+                >Please enter a valid email</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              formControlName="subject"
+              [class.error]="
+                subject?.invalid && (subject?.dirty || subject?.touched)
+              "
+            />
+            <div
+              *ngIf="subject?.invalid && (subject?.dirty || subject?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="subject?.errors?.['required']"
+                >Subject is required</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              rows="5"
+              [class.error]="
+                message?.invalid && (message?.dirty || message?.touched)
+              "
+            ></textarea>
+            <div
+              *ngIf="message?.invalid && (message?.dirty || message?.touched)"
+              class="error-message"
+            >
+              <span *ngIf="message?.errors?.['required']"
+                >Message is required</span
+              >
+              <span *ngIf="message?.errors?.['minlength']"
+                >Message must be at least 10 characters</span
+              >
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="contactForm.invalid || isLoading"
+          >
+            <span *ngIf="!isLoading">Send Message</span>
+            <span *ngIf="isLoading" class="btn-spinner"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

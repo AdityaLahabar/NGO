@@ -1,0 +1,50 @@
+<div class="carousel-container">
+  <div class="carousel">
+    <div
+      class="carousel-items"
+      [style.transform]="'translateX(' + -currentIndex * 100 + '%)'"
+    >
+      <div class="carousel-item" *ngFor="let item of items">
+        <div
+          class="carousel-content"
+          [style.background-image]="'url(' + item.imageUrl + ')'"
+        >
+          <div class="overlay"></div>
+          <div class="item-content">
+            <span class="item-category">{{ item.category }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.shortDescription }}</p>
+            <a [routerLink]="['/our-work', item.id]" class="item-link"
+              >View Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="carousel-control prev"
+      (click)="prev()"
+      [attr.aria-label]="'Previous slide'"
+    >
+      <span>&#10094;</span>
+    </button>
+    <button
+      class="carousel-control next"
+      (click)="next()"
+      [attr.aria-label]="'Next slide'"
+    >
+      <span>&#10095;</span>
+    </button>
+
+    <div class="carousel-indicators">
+      <button
+        *ngFor="let item of items; let i = index"
+        class="indicator"
+        [class.active]="i === currentIndex"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+        (click)="goToSlide(i)"
+      ></button>
+    </div>
+  </div>
+</div>

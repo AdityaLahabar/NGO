@@ -1,0 +1,145 @@
+/* Hero Section */
+.highlight {
+  color: #2e7d32;
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 80px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.divider {
+  height: 3px;
+  width: 60px;
+  background-color: #2e7d32;
+  margin: 0 auto 24px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: #555;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.2);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 48px 0;
+  color: #666;
+}
+
+/* Impact Section */
+.impact-section {
+  background-color: #f9f9f9;
+  padding: 80px 0;
+}
+
+.impact-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.impact-item {
+  text-align: center;
+  padding: 24px;
+  min-width: 200px;
+}
+
+.impact-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.impact-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.impact-label {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-section,
+  .impact-section {
+    padding: 60px 0;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .impact-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .impact-item {
+    width: 100%;
+    max-width: 300px;
+  }
+}

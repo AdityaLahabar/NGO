@@ -1,0 +1,23 @@
+<section
+  class="hero-section"
+  [style.background-image]="'url(' + backgroundImage + ')'"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 [innerHTML]="title"></h1>
+      <p>{{ subtitle }}</p>
+      <div class="hero-buttons">
+        <a [routerLink]="primaryButtonLink" class="btn btn-primary">{{
+          primaryButtonText
+        }}</a>
+        <a
+          *ngIf="secondaryButtonText"
+          [routerLink]="secondaryButtonLink"
+          class="btn btn-secondary"
+          >{{ secondaryButtonText }}</a
+        >
+      </div>
+    </div>
+  </div>
+</section>

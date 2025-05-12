@@ -1,0 +1,93 @@
+<app-hero-section
+  backgroundImage="https://images.pexels.com/photos/6591156/pexels-photo-6591156.jpeg"
+  title="Our <span class='highlight'>Work</span>"
+  subtitle="Explore our projects and initiatives making a lasting impact in communities around the world."
+  primaryButtonText="View Projects"
+  [primaryButtonLink]="'#projects'"
+  [secondaryButtonText]="''"
+
+>
+</app-hero-section>
+
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Projects</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label for="category-filter">Filter by Category:</label>
+        <select
+          id="category-filter"
+          [(ngModel)]="selectedCategory"
+          (change)="applyFilters()"
+        >
+          <option value="all">All Categories</option>
+          <option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="search">Search:</label>
+        <input
+          type="text"
+          id="search"
+          [(ngModel)]="searchTerm"
+          (input)="applyFilters()"
+          placeholder="Search projects..."
+        />
+      </div>
+    </div>
+
+    <div *ngIf="filteredProjects.length === 0" class="no-results">
+      <p>
+        No projects found matching your criteria. Please try different filters.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <div *ngFor="let project of filteredProjects" class="project-item">
+        <app-project-card [project]="project"></app-project-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Global Impact</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="impact-stats">
+      <div class="impact-item">
+        <div class="impact-icon">🌍</div>
+        <div class="impact-number">25+</div>
+        <div class="impact-label">Countries</div>
+      </div>
+
+      <div class="impact-item">
+        <div class="impact-icon">💧</div>
+        <div class="impact-number">100K+</div>
+        <div class="impact-label">Clean Water Access</div>
+      </div>
+
+      <div class="impact-item">
+        <div class="impact-icon">📚</div>
+        <div class="impact-number">50K+</div>
+        <div class="impact-label">Children Educated</div>
+      </div>
+
+      <div class="impact-item">
+        <div class="impact-icon">🏥</div>
+        <div class="impact-number">75K+</div>
+        <div class="impact-label">Healthcare Recipients</div>
+      </div>
+    </div>
+  </div>
+</section>
