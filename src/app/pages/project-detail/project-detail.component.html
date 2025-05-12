@@ -62,14 +62,15 @@
   <p>Loading project details...</p>
 </div> -->
 
-    <div class="container">
-        <div class="section-header">
-         <h2>Our Projects</h2>
-         <div class="divider"></div>
+<div *ngIf="!project" class="container">
+  <div class="section-header">
+    <h2>Our Projects</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div *ngIf="!project" class="projects-grid">
+    <div *ngFor="let project of recentProjects" class="project-item">
+      <app-project-card [project]="project"></app-project-card>
     </div>
-    
-<div *ngIf="!project" class="projects-grid">
-  <div *ngFor="let project of recentProjects" class="project-item">
-    <app-project-card [project]="project"></app-project-card>
   </div>
 </div>
